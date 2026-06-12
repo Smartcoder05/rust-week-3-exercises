@@ -75,6 +75,7 @@ mod tests {
         )];
         let tx = BitcoinTransaction::new(2, inputs.clone(), 1000);
         let bytes = tx.to_bytes();
+        println!("{:?}", bytes.len());
         let (parsed, consumed) = BitcoinTransaction::from_bytes(&bytes).unwrap();
         assert_eq!(parsed, tx);
         assert_eq!(consumed, bytes.len());
